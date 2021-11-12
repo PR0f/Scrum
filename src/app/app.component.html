@@ -1,4 +1,13 @@
-
 <app-menu></app-menu>
-Hello World
-<app-home></app-home>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="side" opened="true" (click)="onClick()">
+        <app-workspacebar></app-workspacebar>
+    </mat-sidenav>
+
+
+    <mat-sidenav-content>
+        Main
+    </mat-sidenav-content>
+</mat-sidenav-container>
+

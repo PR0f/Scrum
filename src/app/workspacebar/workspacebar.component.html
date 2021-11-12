@@ -1,0 +1,13 @@
+<div class="title" *ngIf="bold">Workspaces</div>
+
+
+<mat-list role="list">
+    <mat-list-item *ngFor="let i of listElements" role="listitem">
+        
+        <mat-icon class="icon-display">info</mat-icon>
+        &nbsp;
+        <span *ngIf="bold">&nbsp;Item Long AS Fuck</span>
+        
+    </mat-list-item>
+    
+  </mat-list>

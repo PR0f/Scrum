@@ -1,0 +1,12 @@
+mat-sidenav-container {
+    height: calc(100% - 50px);
+}
+
+mat-sidenav, mat-sidenav-content{
+    padding: 2px;
+}
+
+mat-sidenav {
+    background-color: lightcyan;
+    
+}
