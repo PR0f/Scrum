@@ -1,4 +1,4 @@
-import { Component, OnInit, ɵCodegenComponentFactoryResolver } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-workspacebar',
@@ -9,11 +9,29 @@ export class WorkspacebarComponent implements OnInit {
 
   constructor() { }
 
-  bold:boolean = true;
+  @Input()
+  isMenuOpen: boolean = false;
 
-  listElements = [1, 2, 3, 4, 5, 6]
+  str:String = "Text example for testing";
+  maxLength:number = 20;
+
+  listElements = [1, 2, 3, 4, 5, 6, 7, 8]
 
   ngOnInit(): void {
+
+  }
+
+  tmp:String = "";
+
+  finalStr()
+  {
+    if(this.str.length > this.maxLength)
+    {
+        this.tmp = this.str.substring(0, this.maxLength);
+        this.str = this.tmp + "..";
+        
+    }
+    return this.str;
   }
 
 }

@@ -7,11 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-movies';
-  opened = true;
 
-  onClick()
+  isMenuOpen:boolean = true;
+  isDarkMode:boolean = false;
+
+  OnMenuIconClick()
   {
-    
+    this.isMenuOpen = !this.isMenuOpen;
   }
+
+
 }
 

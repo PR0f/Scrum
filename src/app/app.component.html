@@ -1,13 +1,13 @@
-<app-menu></app-menu>
+<app-menu (OnMenuIconClick)="OnMenuIconClick()"></app-menu>
 
 <mat-sidenav-container>
-    <mat-sidenav #sidenav mode="side" opened="true" (click)="onClick()">
-        <app-workspacebar></app-workspacebar>
+    <mat-sidenav #sidenav mode="side" [(opened)]="isMenuOpen" id="sidenav">
+        <app-workspacebar [isMenuOpen]="isMenuOpen"></app-workspacebar>
     </mat-sidenav>
 
 
-    <mat-sidenav-content>
-        Main
+    <mat-sidenav-content >
+        <app-workespaces></app-workespaces>
     </mat-sidenav-content>
 </mat-sidenav-container>
 

@@ -1,13 +1,24 @@
-<div class="title" *ngIf="bold">Workspaces</div>
-
-
-<mat-list role="list">
+<mat-list role="list" >
+    <div mat-subheader >Workspaces</div>
     <mat-list-item *ngFor="let i of listElements" role="listitem">
-        
-        <mat-icon class="icon-display">info</mat-icon>
-        &nbsp;
-        <span *ngIf="bold">&nbsp;Item Long AS Fuck</span>
-        
+        <mat-card  style=" box-shadow: none;">
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title *ngIf="isMenuOpen" mat-line>{{ finalStr() }}</mat-card-title>
+            </mat-card-header>
+        </mat-card>
+
+    </mat-list-item>
+    <mat-divider></mat-divider>
+
+
+    <div mat-subheader>Folders</div>
+    <mat-list-item *ngFor="let i of listElements" role="listitem">
+            
+        <mat-icon matListIcon class="material-icons-outlined">account_circle</mat-icon>
+        <div *ngIf="isMenuOpen" mat-line>
+            {{ finalStr() }}
+        </div>
     </mat-list-item>
     
-  </mat-list>
+</mat-list>

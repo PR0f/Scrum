@@ -4,26 +4,34 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenuComponent } from './menu/menu.component';
 import { WorkspacebarComponent } from './workspacebar/workspacebar.component';
 import {MatListModule} from '@angular/material/list';
+import { WorkespacesComponent } from './MainContent/workespaces/workespaces.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     MenuComponent,
-    WorkspacebarComponent
+    WorkspacebarComponent,
+    WorkespacesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    MatListModule
+    MatListModule,
+    MatCardModule,
+    MatGridListModule,
+    DragDropModule,
+    ScrollingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,9 +1,23 @@
-.title{
-    font-size: 1.5em;
-    padding-left: 15px;
+
+ .example-header-image {
+   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+   background-size: cover;
+ }
+
+mat-card{
+   background: rgba(0, 0, 0, 0);
+   box-shadow: none;
+   padding-left: 0px;
 }
 
-.icon-display {
-    transform: scale(1.5);
-    color: rgb(76, 76, 77);
- }
+
+ mat-card-title{
+   margin-top: 10px;
+   margin-bottom: 12px;
+   font-weight: 400;
+}
+
+mat-card-header mat-card-title{
+   font-size: 16px;
+
+}
