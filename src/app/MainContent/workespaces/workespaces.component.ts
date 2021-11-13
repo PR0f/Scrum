@@ -7,17 +7,28 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
   styleUrls: ['./workespaces.component.css']
 })
 export class WorkespacesComponent  {
-  timePeriods = [
+  /*workspaceGroups = [
     'Bronze age',
     'Iron age',
     'Middle ages',
-    'Early modern period',
-    'Long nineteenth century',
     'Bronze age'
 
+  ];*/
+
+  workspaceGroups = [
+    {"id":0, "title":'Bronze age', "subtitle":'cos tam'},
+    {"id":1, "title":'Iron age', "subtitle":'cos tam'},
+    {"id":2, "title":'Middle ages', "subtitle":'cos tam'},
+    {"id":3, "title":'Golden age', "subtitle":'cos tam'}
   ];
 
   drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.timePeriods, event.previousIndex, event.currentIndex);
+    moveItemInArray(this.workspaceGroups, event.previousIndex, event.currentIndex);
+  }
+
+
+  addCard()
+  {
+    this.workspaceGroups.push({"id":4, "title":'Test', "subtitle":'cos tam'});
   }
 }

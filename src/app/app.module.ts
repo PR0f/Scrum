@@ -13,6 +13,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {ScrollingModule} from '@angular/cdk/scrolling';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
     MatCardModule,
     MatGridListModule,
     DragDropModule,
-    ScrollingModule
+    ScrollingModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

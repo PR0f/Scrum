@@ -11,22 +11,30 @@
 
 <div class="example-container">
   <div cdkDropList cdkDropListOrientation="horizontal" class="example-list" (cdkDropListDropped)="drop($event)">
-    <div class="example-box" *ngFor="let timePeriod of timePeriods" cdkDrag>
+    <div class="example-box" *ngFor="let workspaceGroup of workspaceGroups" cdkDrag [cdkDragStartDelay]="300">
       <mat-card class="example-card" >
         <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>Shiba Inu</mat-card-title>
-          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+          <button mat-icon-button style="position: absolute; right: 10px;" [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+              <mat-icon>edit</mat-icon>
+              <span>Edit</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>delete_outline</mat-icon>
+              <span>Delete</span>
+            </button>
+          </mat-menu>
+          <mat-card-title>{{workspaceGroup.title}}</mat-card-title>
+          <mat-card-subtitle>{{workspaceGroup.subtitle}}</mat-card-subtitle>
         </mat-card-header>
         
-        <mat-card-content>
-          <p>
-            The Shiba Inu is the sm
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button>
+        <mat-card-actions style="display: flex; justify-content: center;">
+          <div style="position: absolute; bottom: 10px;">
+            <button mat-flat-button color="primary" style="margin-right: 0.3em;">VISIT</button>
+          </div>
         </mat-card-actions>
       </mat-card>  
     </div >
@@ -36,7 +44,7 @@
         <mat-card-content style="display: flex; justify-content: center; ">
           <div style="top: 50%; position: absolute; -ms-transform: translateY(-50%); transform: translateY(-50%);">
             <button mat-fab color="primary">
-              <mat-icon>add</mat-icon>
+              <mat-icon (click)="addCard()">add</mat-icon>
             </button>
           </div>
         </mat-card-content>
