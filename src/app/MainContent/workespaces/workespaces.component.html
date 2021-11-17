@@ -1,60 +1,91 @@
-<div style="display: flex; justify-content: center;">
-  <mat-card  style="background: rgba(0, 0, 0, 0); box-shadow: none;">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header>
-  </mat-card>
-</div>
+<div  style="padding-bottom: 6em;">
+  
 
+  <div style="display: flex; justify-content: center; padding-left: 2em;">
+    <mat-card  style="background: rgba(0, 0, 0, 0); box-shadow: none;">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Shiba Inu</mat-card-title>
+        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
 
-<div class="example-container">
-  <div cdkDropList cdkDropListOrientation="horizontal" class="example-list" (cdkDropListDropped)="drop($event)">
-    <div class="example-box" *ngFor="let workspaceGroup of workspaceGroups" cdkDrag [cdkDragStartDelay]="300">
-      <mat-card class="example-card" >
-        <mat-card-header>
-          <button mat-icon-button style="position: absolute; right: 10px;" [matMenuTriggerFor]="menu">
-            <mat-icon>more_vert</mat-icon>
+        <button mat-icon-button (click)="toogleGroupHidding()">
+          <mat-icon *ngIf="!isGroupHidden">expand_more</mat-icon>
+          <mat-icon *ngIf="isGroupHidden">expand_less</mat-icon>
+        </button>
+
+        <button mat-icon-button  [matMenuTriggerFor]="workspaceMenu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #workspaceMenu="matMenu">
+          <button mat-menu-item >
+            <mat-icon>group</mat-icon>
+            <span>Members</span>
           </button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item>
-              <mat-icon>edit</mat-icon>
-              <span>Edit</span>
-            </button>
-            <button mat-menu-item>
-              <mat-icon>delete_outline</mat-icon>
-              <span>Delete</span>
-            </button>
-          </mat-menu>
-          <mat-card-title>{{workspaceGroup.title}}</mat-card-title>
-          <mat-card-subtitle>{{workspaceGroup.subtitle}}</mat-card-subtitle>
-        </mat-card-header>
-        
-        <mat-card-actions style="display: flex; justify-content: center;">
-          <div style="position: absolute; bottom: 10px;">
-            <button mat-flat-button color="primary" style="margin-right: 0.3em;">VISIT</button>
-          </div>
-        </mat-card-actions>
-      </mat-card>  
-    </div >
+          <button mat-menu-item >
+            <mat-icon>edit</mat-icon>
+            <span>Edit</span>
+          </button>
+          <button mat-menu-item >
+            <mat-icon>delete_outline</mat-icon>
+            <span>Delete</span>
+          </button>
+        </mat-menu>
 
-    <div class="example-box">
-      <mat-card class="example-card" >
-        <mat-card-content style="display: flex; justify-content: center; ">
-          <div style="top: 50%; position: absolute; -ms-transform: translateY(-50%); transform: translateY(-50%);">
-            <button mat-fab color="primary">
-              <mat-icon (click)="addCard()">add</mat-icon>
-            </button>
-          </div>
-        </mat-card-content>
-      </mat-card>
-    </div >
-
-
+      </mat-card-header>
+    </mat-card>
   </div>
+
+
+  <div class="example-container" *ngIf="!isGroupHidden">
+    <div cdkDropList cdkDropListOrientation="horizontal" class="example-list" (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let workspaceGroup of workspaceGroups;let i = index" cdkDrag [cdkDragStartDelay]="300">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <button mat-icon-button style="position: absolute; right: 10px;" [matMenuTriggerFor]="menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item >
+                <mat-icon>edit</mat-icon>
+                <span>Edit</span>
+              </button>
+              <button mat-menu-item (click)="delCard(i)">
+                <mat-icon>delete_outline</mat-icon>
+                <span>Delete</span>
+              </button>
+            </mat-menu>
+
+
+            <mat-card-title>{{workspaceGroup.title}}</mat-card-title>
+            <mat-card-subtitle>{{workspaceGroup.subtitle}}</mat-card-subtitle>
+          </mat-card-header>
+          
+          
+
+          <mat-card-actions style="display: flex; justify-content: center;">
+            <div style="position: absolute; bottom: 10px;">
+              <button mat-flat-button color="primary" style="margin-right: 0.3em;">VISIT</button>
+            </div>
+          </mat-card-actions>
+        </mat-card>  
+      </div >
+
+      <div class="example-box">
+        <mat-card class="example-card" >
+          <mat-card-content style="display: flex; justify-content: center; ">
+            <div style="top: 50%; position: absolute; -ms-transform: translateY(-50%); transform: translateY(-50%);">
+              <button mat-fab color="primary">
+                <mat-icon (click)="addCard()">add</mat-icon>
+              </button>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div >
+
+
+    </div>
+  </div>
+  
 </div>
-
-
 
 

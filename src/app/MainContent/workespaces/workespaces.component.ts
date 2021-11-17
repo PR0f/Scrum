@@ -7,13 +7,6 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
   styleUrls: ['./workespaces.component.css']
 })
 export class WorkespacesComponent  {
-  /*workspaceGroups = [
-    'Bronze age',
-    'Iron age',
-    'Middle ages',
-    'Bronze age'
-
-  ];*/
 
   workspaceGroups = [
     {"id":0, "title":'Bronze age', "subtitle":'cos tam'},
@@ -30,5 +23,20 @@ export class WorkespacesComponent  {
   addCard()
   {
     this.workspaceGroups.push({"id":4, "title":'Test', "subtitle":'cos tam'});
+    //add server backend to update filles
+  }
+
+  delCard(index : number)
+  {
+    this.workspaceGroups.splice(index,1);
+    //add server backend to update filles
+  }
+
+  isGroupHidden : boolean = false;
+
+  toogleGroupHidding()
+  {
+    this.isGroupHidden = !this.isGroupHidden;
+    //add server backend to update filles
   }
 }
